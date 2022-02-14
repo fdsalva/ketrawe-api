@@ -1,6 +1,7 @@
 const express = require('express');
 const dbConnection = require('./db/config');
 require('./db/config');
+const port = process.env.PORT || 8080;
 const mongoose = require('mongoose');
 const plantsAndPots = require('./model/plantsAndPots');
 
@@ -76,6 +77,6 @@ app.delete("/productos/:id", async (req, res) => {
 
 
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto 8080`)
 })
