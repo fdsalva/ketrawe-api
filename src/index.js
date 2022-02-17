@@ -1,5 +1,6 @@
 const express = require('express');
 const dbConnection = require('./db/config');
+const cors = require('cors');
 require('./db/config');
 const port = process.env.PORT || 8080;
 const mongoose = require('mongoose');
@@ -11,7 +12,7 @@ dbConnection();
 
 app.use(express.static('public'));
 app.use(express.json());
-
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('API KETRAWE');
